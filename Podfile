@@ -6,7 +6,7 @@ target 'Prueba_iOS' do
   use_frameworks!
 
   # Pods for Prueba_iOS
-  pod 'Alamofire'
+  pod 'Starscream'
   pod 'SwiftyJSON'
   pod 'Kingfisher'
 
