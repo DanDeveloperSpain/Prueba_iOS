@@ -15,6 +15,8 @@
 		B6D796F223B4BFFC0036A46B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6D796F123B4BFFC0036A46B /* Assets.xcassets */; };
 		B6D796F523B4BFFC0036A46B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6D796F323B4BFFC0036A46B /* LaunchScreen.storyboard */; };
 		B6D7970023B4BFFC0036A46B /* Prueba_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D796FF23B4BFFC0036A46B /* Prueba_iOSTests.swift */; };
+		B6D7970C23B4D3040036A46B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7970B23B4D3040036A46B /* User.swift */; };
+		B6D7970E23B4D4F00036A46B /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D7970D23B4D4F00036A46B /* Room.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		B6D796FB23B4BFFC0036A46B /* Prueba_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Prueba_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6D796FF23B4BFFC0036A46B /* Prueba_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prueba_iOSTests.swift; sourceTree = "<group>"; };
 		B6D7970123B4BFFC0036A46B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6D7970B23B4D3040036A46B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B6D7970D23B4D4F00036A46B /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		D07E59A1AE5D9ED869E8EF66 /* Pods_Prueba_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prueba_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8B9CD9C47DB0532810AD81D /* Pods-Prueba_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prueba_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Prueba_iOS/Pods-Prueba_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		EBD3726511733ABA09193027 /* Pods-Prueba_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prueba_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Prueba_iOS/Pods-Prueba_iOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -100,6 +104,7 @@
 		B6D796E923B4BFFA0036A46B /* Prueba_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				B6D7970A23B4D2C70036A46B /* Model */,
 				B6D796EA23B4BFFA0036A46B /* AppDelegate.swift */,
 				B6D796EC23B4BFFA0036A46B /* ViewController.swift */,
 				B6D796EE23B4BFFA0036A46B /* Main.storyboard */,
@@ -117,6 +122,15 @@
 				B6D7970123B4BFFC0036A46B /* Info.plist */,
 			);
 			path = Prueba_iOSTests;
+			sourceTree = "<group>";
+		};
+		B6D7970A23B4D2C70036A46B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B6D7970B23B4D3040036A46B /* User.swift */,
+				B6D7970D23B4D4F00036A46B /* Room.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		FB5C1E0111A4761F5731FC45 /* Frameworks */ = {
@@ -307,6 +321,8 @@
 			files = (
 				B6D796ED23B4BFFA0036A46B /* ViewController.swift in Sources */,
 				B6D796EB23B4BFFA0036A46B /* AppDelegate.swift in Sources */,
+				B6D7970E23B4D4F00036A46B /* Room.swift in Sources */,
+				B6D7970C23B4D3040036A46B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
