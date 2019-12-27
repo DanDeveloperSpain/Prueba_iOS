@@ -9,18 +9,20 @@
 import Foundation
 
 class Room {
-    var id: Int
-    var title: String
-    var email: String
+    var id: String
     var image: String
-    var user: [User]
+    var title: String
+    var room_type: String
+    var num_users: Int
+    var new_messages: Int
     
-    init(id: Int, title: String, email: String, image: String, user: [User]){
+    init(id: String, image: String, title: String, room_type: String, num_users: Int, new_messages: Int){
         self.id = id
-        self.title = title
-        self.email = email
         self.image = image
-        self.user = user
+        self.title = title
+        self.room_type = room_type
+        self.num_users = num_users
+        self.new_messages = new_messages
     }
 
 }

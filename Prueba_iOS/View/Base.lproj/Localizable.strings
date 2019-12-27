@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  Prueba_iOS
+
+  Created by Daniel Pérez Parreño on 27/12/2019.
+  Copyright © 2019 Daniel Pérez Parreño. All rights reserved.
+*/
+
+//--------- A ---------//
+"Accept" = "Accept";
+
+//--------- E ---------//
+"Enter_the_email_and_password" = "Enter the email and password";
+
+//--------- F ---------//
+"Failed_to_login" = "Failed to login";
+
+//--------- I ---------//
+"Invalid_email" = "Invalid email";
+
+//--------- M ---------//
+"Missing_data_to_be_filled" = "Missing data to be filled";
+
+//--------- P ---------//
+"Please_check_the_email" = "Please check the email";

@@ -15,7 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        if WebsocketSessionManager.shared.token.count > 0 {
+            //entrar a las tabs
+        } else {
+            //ir al login
+        }
         return true
     }
 
