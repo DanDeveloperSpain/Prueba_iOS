@@ -11,9 +11,13 @@
 
 //--------- E ---------/
 "Enter_the_email_and_password" = "Introduce el email y la contraseña";
+"Error_to_load" = "Error al cargar los datos";
 
 //--------- F ---------//
 "Failed_to_login" = "Error al iniciar sesion";
+
+//--------- G ---------//
+"GROUP_PRIVATE" = "Grupo privado";
 
 //--------- I ---------/
 "Invalid_email" = "Email no válido";
@@ -21,5 +25,14 @@
 //--------- M ---------/
 "Missing_data_to_be_filled" = "Faltan datos por rellenar";
 
+//--------- N ---------/
+"New_messages" = "Mensajes nuevos";
+
 //--------- P ---------/
 "Please_check_the_email" = "Por favor revisa el email";
+
+//--------- S ---------//
+"SINGLE_PRIVATE" = "Solo privado";
+
+//--------- U ---------//
+"Users" = "Usuarios";

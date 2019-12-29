@@ -12,42 +12,30 @@ import SwiftyJSON
 
 protocol WebsocketApiService {
     
-    func socketConnect()
-    
-    func socketSendMessage(parameters: [String: Any], completionHandler: @escaping ([String: JSON]) -> Void)
+    func sendMessageToWebsocket(parameters: [String: Any], completionHandler: @escaping ([String: JSON]) -> Void)
     
 }
 
+
 final class WebsocketSessionManager : WebsocketApiService {
-    var socket: WebSocket!
-    
-    var token : String
-    
-    let WEBSOCKET_URL = Bundle.main.infoDictionary!["WebSocket_URL"] as! String
+    private let WEBSOCKET_URL = Bundle.main.infoDictionary!["WebSocket_URL"] as! String
+    private var socket: WebSocket!
+    var token : String!
     
     private init(){
-        token = String()
-        setTokenApi()
-        socketConnect()
-        print("INICIANDOME")
+        websocketConnect()
     }
     
     static let shared = WebsocketSessionManager()
     
     
-    private func setTokenApi(){
-        if let token = UserDefaults.standard.object(forKey: "SavedToken") as? String {
-            self.token =  token
-        }
-    }
-    
-    func socketConnect() {
+    private func websocketConnect() {
         socket = WebSocket(url: URL(string: WEBSOCKET_URL)!)
-        socket.delegate = self
         socket.connect()
     }
     
-    func socketSendMessage(parameters: [String: Any], completionHandler: @escaping ([String: JSON]) -> Void){
+    
+    private func websocketSendAndReciveMessage(parameters: [String: Any], completionHandler: @escaping ([String: JSON]) -> Void){
         
         var result = [String: JSON]()
         
@@ -74,25 +62,46 @@ final class WebsocketSessionManager : WebsocketApiService {
         
     }
     
+    
+    func sendMessageToWebsocket(parameters: [String: Any], completionHandler: @escaping ([String: JSON]) -> Void){
+        if socket.isConnected {
+            websocketSendAndReciveMessage(parameters: parameters, completionHandler: {result in completionHandler(result)})
+        } else {
+            socket.onConnect = {
+                self.websocketSendAndReciveMessage(parameters: parameters, completionHandler: {result in completionHandler(result)})
+            }
+        }
+    }
+    
 }
 
-extension WebsocketSessionManager : WebSocketDelegate {
-    func websocketDidConnect(socket: WebSocketClient) {
-        print("CONECTADOO")
+class DummyWebsocketSessionManager : WebsocketApiService {
+    func sendMessageToWebsocket(parameters: [String : Any], completionHandler: @escaping ([String : JSON]) -> Void) {
+        var result = [String: JSON]()
+        
+        result["successful"] = JSON(
+            [
+                "event" : "$2a$10$TxUWrGvhMY9Q89fl6m9EHOr1.wG1ndC4/USER",
+                "content" : [
+                    "id": "26",
+                    "username": "user2",
+                    "avatar": "https://api.cryptysecure-dev.com/media/logo-crypty-round.png.600x600_q85_upscale.png",
+                    "email": "user2@test.test",
+                    "notifications_enabled": true,
+                    "emergency_mode_enabled": false,
+                    "delete_history_after": "0",
+                    "autolock_after": "0",
+                    "is_blocked": false,
+                    "is_validated_account": false,
+                    "pin_enabled": false,
+                    "pin": nil,
+                    "counter_rooms": 0,
+                    "counter_calls": 0,
+                    "counter_contacts": 0
+                ]
+            ])
+        
+        completionHandler(result)
     }
-
-    func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
-        print("error ", error)
-    }
-
-    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
-        print("111 ", text)
-        //handleMessage(jsonString: text)
-    }
-
-    func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
-        print("222 ", data)
-    }
-
-
+    
 }

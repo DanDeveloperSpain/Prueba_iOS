@@ -13,21 +13,18 @@ class RoomConfigurator {
     
     var rooms: [Room]!
     
-    var websocketSessionManager : WebsocketApiService
+    var websocketApiService : WebsocketApiService
     
-    init(websocketSessionManager: WebsocketApiService) {
-        self.websocketSessionManager = websocketSessionManager
+    init(websocketApiService: WebsocketApiService) {
+        self.websocketApiService = websocketApiService
     }
     
     
     func getRooms(completionHandler: @escaping (Bool) -> Void){
         var isUser = false
+        let parameters: [String: Any] = ["cmd": "ROOMS" as Any]
         
-        let parameters: [String: Any] = [
-            "cmd": "ROOMS" as Any
-        ]
-        
-        websocketSessionManager.socketSendMessage(parameters: parameters, completionHandler: {result in
+        websocketApiService.sendMessageToWebsocket(parameters: parameters, completionHandler: {result in
             if let jsonResult = result["successful"] {
                 self.rooms = [Room]()
                 let jsonRooms = JSON(jsonResult["content"].arrayValue)
@@ -45,7 +42,6 @@ class RoomConfigurator {
             }
             completionHandler(isUser)
         })
-        
     }
     
 }

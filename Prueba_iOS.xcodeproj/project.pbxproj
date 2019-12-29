@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3785EB629C8213CE32AED238 /* Pods_Prueba_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA849D5D57C824DCDE2DE88 /* Pods_Prueba_iOS.framework */; };
 		4187327151A2D46C745EDDFA /* Pods_Prueba_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07E59A1AE5D9ED869E8EF66 /* Pods_Prueba_iOSTests.framework */; };
+		B63743B423B7A4D60035BBF5 /* RoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63743B323B7A4D60035BBF5 /* RoomCell.swift */; };
 		B674BEB623B5723500EBD659 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B674BEB523B5723500EBD659 /* Utils.swift */; };
 		B674BEB823B574FA00EBD659 /* WebsocketSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B674BEB723B574FA00EBD659 /* WebsocketSessionManager.swift */; };
 		B674BEBA23B57DCC00EBD659 /* LoginConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B674BEB923B57DCC00EBD659 /* LoginConfigurator.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		8C9E912807E87F78E933BE05 /* Pods-Prueba_iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prueba_iOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Prueba_iOSTests/Pods-Prueba_iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ABA849D5D57C824DCDE2DE88 /* Pods_Prueba_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prueba_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B63743B323B7A4D60035BBF5 /* RoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCell.swift; sourceTree = "<group>"; };
 		B672B56723B609C500801F29 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		B672B56823B609C500801F29 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B674BEB523B5723500EBD659 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				B6D796F123B4BFFC0036A46B /* Assets.xcassets */,
 				B6D796F323B4BFFC0036A46B /* LaunchScreen.storyboard */,
 				B6D0B51E23B60C7200051092 /* Localizable.strings */,
+				B63743B323B7A4D60035BBF5 /* RoomCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				B6D7971323B4F3190036A46B /* LoginViewController.swift in Sources */,
 				B6D7970C23B4D3040036A46B /* User.swift in Sources */,
 				B674BEB623B5723500EBD659 /* Utils.swift in Sources */,
+				B63743B423B7A4D60035BBF5 /* RoomCell.swift in Sources */,
 				B674BEBA23B57DCC00EBD659 /* LoginConfigurator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

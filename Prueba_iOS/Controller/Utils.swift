@@ -16,5 +16,4 @@ class Utils {
         viewController.present(alert, animated: true, completion: nil)
     }
     
-    
 }

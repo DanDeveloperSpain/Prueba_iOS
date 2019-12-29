@@ -9,12 +9,8 @@
 import Foundation
 
 class Room {
-    var id: String
-    var image: String
-    var title: String
-    var room_type: String
-    var num_users: Int
-    var new_messages: Int
+    var id, image, title, room_type: String
+    var num_users, new_messages: Int
     
     init(id: String, image: String, title: String, room_type: String, num_users: Int, new_messages: Int){
         self.id = id

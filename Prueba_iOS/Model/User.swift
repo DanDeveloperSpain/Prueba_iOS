@@ -9,11 +9,7 @@
 import Foundation
 
 class User{
-    var id: String
-    var userName: String
-    var email: String
-    var avatar: String
-    
+    var id, userName, email, avatar: String
     
     init(id: String, userName: String, email: String, avatar: String) {
         self.id = id

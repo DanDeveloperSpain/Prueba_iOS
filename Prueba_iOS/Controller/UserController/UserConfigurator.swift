@@ -12,21 +12,18 @@ class UserConfigurator {
     
     var user: User!
     
-    var websocketSessionManager : WebsocketApiService
+    var websocketApiService : WebsocketApiService
     
-    init(websocketSessionManager: WebsocketApiService) {
-        self.websocketSessionManager = websocketSessionManager
+    init(websocketApiService: WebsocketApiService) {
+        self.websocketApiService = websocketApiService
     }
     
     
     func getUser(completionHandler: @escaping (Bool) -> Void){
         var isUser = false
+        let parameters: [String: Any] = ["cmd": "USER" as Any]
         
-        let parameters: [String: Any] = [
-            "cmd": "USER" as Any
-        ]
-        
-        websocketSessionManager.socketSendMessage(parameters: parameters, completionHandler: {result in
+        websocketApiService.sendMessageToWebsocket(parameters: parameters, completionHandler: {result in
             if let jsonResult = result["successful"] {
                 self.user = User(id: jsonResult["content"]["id"].stringValue,
                                  userName: jsonResult["content"]["username"].stringValue,
@@ -36,7 +33,6 @@ class UserConfigurator {
             }
             completionHandler(isUser)
         })
-        
     }
 
     

@@ -25,23 +25,37 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         emailTextField.delegate = self
         emailTextField.textContentType = .emailAddress
+        emailTextField.keyboardType = .emailAddress
         emailTextField.tag = 0
         emailTextField.returnKeyType = UIReturnKeyType.next
         
         passwordTextField.delegate = self
         passwordTextField.textContentType = .password
+        passwordTextField.isSecureTextEntry = true
         passwordTextField.tag = 1
         passwordTextField.returnKeyType = UIReturnKeyType.go
         
-        loginConfigurator = LoginConfigurator(websocketSessionManager: websocketSessionManager)
+        loginConfigurator = LoginConfigurator(websocketApiService: websocketSessionManager)
     }
     
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        if textField == emailTextField {
+            textField.resignFirstResponder()
+            passwordTextField.becomeFirstResponder()
+        } else if textField == passwordTextField {
+            textField.resignFirstResponder()
+            if isValidData(email: emailTextField.text!, password: passwordTextField.text!){
+                sendDataLogin()
+            }
+        }
+        return true
+    }
+    
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        sendDataLogin()
-//        if isValidData(email: emailTextField.text!, password: passwordTextField.text!){
-//            sendDataLogin()
-//        }
+        if isValidData(email: emailTextField.text!, password: passwordTextField.text!){
+            sendDataLogin()
+        }
     }
     
     func sendDataLogin(){
@@ -50,7 +64,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginConfigurator.sendAutenticate(email: emailTextField.text!, password: passwordTextField.text!, completionHandler: {result in
             
             self.activityIndicator.stopAnimating()
-            self.loginButton.isEnabled = false
+            self.loginButton.isEnabled = true
             if result {
                 self.performSegue(withIdentifier: "enterAppSegue", sender: self)
             } else {

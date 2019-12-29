@@ -10,10 +10,10 @@ import Foundation
 
 class LoginConfigurator {
     
-    var websocketSessionManager : WebsocketApiService
+    var websocketApiService : WebsocketApiService
     
-    init(websocketSessionManager: WebsocketApiService) {
-        self.websocketSessionManager = websocketSessionManager
+    init(websocketApiService: WebsocketApiService) {
+        self.websocketApiService = websocketApiService
     }
     
     
@@ -25,33 +25,25 @@ class LoginConfigurator {
     }
     
     
-    
     func sendAutenticate(email: String, password: String, completionHandler: @escaping (Bool) -> Void){
         var isAutenticate = false
-        
         let parameters: [String: Any] = [
             "cmd": "LOGIN" as Any,
-            "email" : "user2@test.test" as Any,
-            "password" : "Test2020-" as Any
-            //"email" : email as Any,
-            //"password" : password as Any
+            "email" : email as Any,
+            "password" : password as Any
         ]
-
         
-        websocketSessionManager.socketSendMessage(parameters: parameters, completionHandler: {result in
+        websocketApiService.sendMessageToWebsocket(parameters: parameters, completionHandler: {result in
             if let jsonResult = result["successful"] {
                 if jsonResult["content"]["status"] == "logged" {
-                    let token = jsonResult["content"]["token"].stringValue
-                    //GUARDAR TOKEN
-                    print(token)
+                    //--- Saved TOKEN if is necessary ---//
+                    _ = jsonResult["content"]["token"].stringValue
+                    //---------------------------------//
                     isAutenticate = true
                 }
             }
             completionHandler(isAutenticate)
         })
-        
     }
-    
-    
     
 }
