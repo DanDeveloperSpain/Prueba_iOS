@@ -41,5 +41,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>WebSocket_URL</key>
+	<string>${WebSocket_URL}</string>
 </dict>
 </plist>

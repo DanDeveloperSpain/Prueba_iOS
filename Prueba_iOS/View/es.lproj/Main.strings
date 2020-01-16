@@ -1,0 +1,17 @@
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "jY3-qt-TC9"; */
+"jY3-qt-TC9.placeholder" = "Email";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "Yty-yO-MGu"; */
+"Yty-yO-MGu.placeholder" = "Contraseña";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "c1Y-xb-CDW"; */
+"c1Y-xb-CDW.normalTitle" = "Login";
+
+/* Class = "UITabBarItem"; title = "User"; ObjectID = "ZHq-Xy-65Y"; */
+"ZHq-Xy-65Y.title" = "Usuario";
+
+/* Class = "UILabel"; text = "User name"; ObjectID = "irN-BU-2XX"; */
+"irN-BU-2XX.text" = "Nombre de usuario";
+
+/* Class = "UITabBarItem"; title = "Room"; ObjectID = "dyB-ot-lUL"; */
+"dyB-ot-lUL.title" = "Salas";
